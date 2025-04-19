@@ -1,18 +1,19 @@
 name: CICD
 
 on:
-  push:
+  pull_request:
     branches:
       - main
+
 jobs:
-  cypress-run:
+  cypress-tests:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -23,5 +24,6 @@ jobs:
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          build: npm run build # if you're testing a web app that needs to be built
-          start: npm start     # or use your own start script
+          start: npm start          # optional, only if your app needs to start
+          wait-on: http://localhost:3000  # optional, use correct port
+          wait-on-timeout: 60
