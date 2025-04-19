@@ -1,18 +1,16 @@
 describe('Login Page Test', () => {
 
-  let user;
+  const user = {
+    firstName: 'Kinkini',
+    latName: 'Gamage',
+    email: "kinkini3@mail.com", // Cypress.env('CYPRESS_USER_EMAIL'),
+    password: "12345" // Cypress.env('CYPRESS_USER_PASSWORD'),
+  };
+
 
   beforeEach('Visits the home page', () => {
     cy.visit('https://automationexercise.com/');
     cy.url().should('include', '/automationexercise');
-
-    user = {
-      firstName: 'Kinkini',
-      latName: 'Gamage',
-      email: "kinkini3@mail.com", // Cypress.env('CYPRESS_USER_EMAIL'),
-      password: "12345" // Cypress.env('CYPRESS_USER_PASSWORD'),
-    };
-
   
     console.log("CYPRESS_USER_EMAIL: ", Cypress.env('CYPRESS_USER_EMAIL'))
     console.log("CYPRESS_USER_PASSWORD: ", Cypress.env('CYPRESS_USER_PASSWORD'))
