@@ -9,6 +9,10 @@ jobs:
   cypress-tests:
     runs-on: ubuntu-latest
 
+    env:
+        userEmail: ${{ secrets.USER_EMAIL }}
+        userPassword: ${{ secrets.USER_PASSWORD }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
