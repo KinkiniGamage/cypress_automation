@@ -3,8 +3,8 @@ describe('Login Page Test', () => {
   const user = {
     firstName: 'Kinkini',
     latName: 'Gamage',
-    email: Cypress.env('CYPRESS_USER_EMAIL'), //"kinkini3@mail.com", // 
-    password: Cypress.env('CYPRESS_USER_PASSWORD') //"12345" // Cypress.env('CYPRESS_USER_PASSWORD'),
+    email: Cypress.env('USER_EMAIL'), //"kinkini3@mail.com", // 
+    password: Cypress.env('USER_PASSWORD') //"12345" // Cypress.env('CYPRESS_USER_PASSWORD'),
   };
 
 
