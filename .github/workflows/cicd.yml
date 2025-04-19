@@ -28,8 +28,8 @@ jobs:
           echo "EMAIL: $CYPRESS_USER_EMAIL"
           echo "PASSWORD: $CYPRESS_USER_PASSWORD"
         env:
-          CYPRESS_USER_EMAIL: ${{ secrets.CYPRESS_USER_EMAIL }}
-          CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}
+          CYPRESS_USER_EMAIL: ${{ vars.CYPRESS_USER_EMAIL }}
+          CYPRESS_USER_PASSWORD: ${{ vars.CYPRESS_USER_PASSWORD }}
 
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
