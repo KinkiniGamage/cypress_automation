@@ -9,9 +9,10 @@ describe('Login Page Test', () => {
     user = {
       firstName: 'Kinkini',
       latName: 'Gamage',
-      email: Cypress.env('CYPRESS_USER_EMAIL'),
-      password: Cypress.env('CYPRESS_USER_PASSWORD'),
+      email: "kinkini3@mail.com", // Cypress.env('CYPRESS_USER_EMAIL'),
+      password: "12345" // Cypress.env('CYPRESS_USER_PASSWORD'),
     };
+
   
     console.log("CYPRESS_USER_EMAIL: ", Cypress.env('CYPRESS_USER_EMAIL'))
     console.log("CYPRESS_USER_PASSWORD: ", Cypress.env('CYPRESS_USER_PASSWORD'))
@@ -40,13 +41,6 @@ describe('Login Page Test', () => {
   }
 
   it('User Sign up as a new registration', () => {
-    const user = {
-      firstName: 'Kinkini',
-      latName: 'Gamage',
-      email: "kinkini3@mail.com", // Cypress.env('CYPRESS_USER_EMAIL'),
-      password: "12345" // Cypress.env('CYPRESS_USER_PASSWORD'),
-    };
-
     cy.contains('a', 'Signup / Login').click()
     cy.url().should('include', '/login')
     cy.contains('h2', 'New User Signup!').should('be.visible')
