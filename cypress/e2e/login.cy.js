@@ -39,6 +39,10 @@ describe('Login Page Test', () => {
   }
 
   it('User Sign up as a new registration', () => {
+
+    console.log(JSON.stringify(user));
+
+
     cy.contains('a', 'Signup / Login').click()
     cy.url().should('include', '/login')
     cy.contains('h2', 'New User Signup!').should('be.visible')
