@@ -57,12 +57,7 @@ describe('Login Page Test', () => {
   })
 
   it('User_Logout', () => {
-    cy.UserLogin({
-      firstName: 'Kinkini',
-      latName: 'Gamage',
-      email: Cypress.env('CYPRESS_USER_EMAIL'),
-      password: Cypress.env('CYPRESS_USER_PASSWORD')
-    })
+    cy.UserLogin(user)
     cy.url().should('include', '/automationexercise');
     cy.contains('a', 'Logout').click()
     cy.url().should('include', '/login');
