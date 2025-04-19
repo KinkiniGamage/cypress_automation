@@ -3,17 +3,13 @@ describe('Login Page Test', () => {
   const user = {
     firstName: 'Kinkini',
     latName: 'Gamage',
-    email: Cypress.env('USER_EMAIL'), //"kinkini3@mail.com", // 
-    password: Cypress.env('USER_PASSWORD') //"12345" // Cypress.env('CYPRESS_USER_PASSWORD'),
+    email: Cypress.env('USER_EMAIL'),
+    password: Cypress.env('USER_PASSWORD')
   };
-
 
   beforeEach('Visits the home page', () => {
     cy.visit('https://automationexercise.com/');
     cy.url().should('include', '/automationexercise');
-  
-    console.log("CYPRESS_USER_EMAIL: ", Cypress.env('CYPRESS_USER_EMAIL'))
-    console.log("CYPRESS_USER_PASSWORD: ", Cypress.env('CYPRESS_USER_PASSWORD'))
   });
  
   function fillSignupForm(user) {
@@ -39,10 +35,6 @@ describe('Login Page Test', () => {
   }
 
   it('User Sign up as a new registration', () => {
-
-    console.log(JSON.stringify(user));
-
-
     cy.contains('a', 'Signup / Login').click()
     cy.url().should('include', '/login')
     cy.contains('h2', 'New User Signup!').should('be.visible')
@@ -86,7 +78,6 @@ describe('Login Page Test', () => {
     cy.contains('p', 'You can create new account to take advantage of member privileges to enhance your online shopping experience with us.').should('be.visible')
     cy.get('[data-qa="continue-button"]').click()
     cy.url().should('include', '/automationexercise');
-
   })
 });
 
