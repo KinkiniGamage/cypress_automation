@@ -12,8 +12,8 @@ describe('Login Page Test', () => {
   const user = {
     firstName: 'Kinkini',
     latName: 'Gamage',
-    email: Cypress.env('userEmail'),
-    password: Cypress.env('userPassword'),
+    email: Cypress.env('CYPRESS_USER_EMAIL'),
+    password: Cypress.env('CYPRESS_USER_PASSWORD'),
   };
 
   function fillSignupForm(user) {
@@ -60,8 +60,8 @@ describe('Login Page Test', () => {
     cy.UserLogin({
       firstName: 'Kinkini',
       latName: 'Gamage',
-      email: Cypress.env('userEmail'),
-      password: Cypress.env('userPassword'),
+      email: Cypress.env('CYPRESS_USER_EMAIL'),
+      password: Cypress.env('CYPRESS_USER_PASSWORD')
     })
     cy.url().should('include', '/automationexercise');
     cy.contains('a', 'Logout').click()
