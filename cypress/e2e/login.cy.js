@@ -3,6 +3,10 @@ describe('Login Page Test', () => {
   beforeEach('Visits the home page', () => {
     cy.visit('https://automationexercise.com/');
     cy.url().should('include', '/automationexercise');
+
+
+    console.log("CYPRESS_USER_EMAIL: ", Cypress.env('CYPRESS_USER_EMAIL'))
+    console.log("CYPRESS_USER_PASSWORD: ", Cypress.env('CYPRESS_USER_PASSWORD'))
   });
 
   const user = {
