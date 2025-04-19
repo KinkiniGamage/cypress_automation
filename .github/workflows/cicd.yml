@@ -1,7 +1,7 @@
 name: CICD
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
@@ -23,4 +23,8 @@ jobs:
 
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
+        with:
+              start: npm start
+              wait-on: http://localhost:3000
+              wait-on-timeout: 60
 
