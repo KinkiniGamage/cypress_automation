@@ -43,10 +43,10 @@ describe('Login Page Test', () => {
     const user = {
       firstName: 'Kinkini',
       latName: 'Gamage',
-      email: Cypress.env('CYPRESS_USER_EMAIL'),
-      password: Cypress.env('CYPRESS_USER_PASSWORD'),
+      email: "kinkini3@mail.com", // Cypress.env('CYPRESS_USER_EMAIL'),
+      password: "12345" // Cypress.env('CYPRESS_USER_PASSWORD'),
     };
-    
+
     cy.contains('a', 'Signup / Login').click()
     cy.url().should('include', '/login')
     cy.contains('h2', 'New User Signup!').should('be.visible')
