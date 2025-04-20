@@ -1,17 +1,19 @@
 describe('Login Page Test', () => {
 
+  const user = {
+    firstName: 'Kinkini',
+    latName: 'Gamage',
+    email: Cypress.env('USER_EMAIL'),
+    password: Cypress.env('USER_PASSWORD')
+    // email: Cypress.env('CYPRESS_USER_EMAIL'),
+    // password: Cypress.env('CYPRESS_USER_PASSWORD')
+  };
+
   beforeEach('Visits the home page', () => {
     cy.visit('https://automationexercise.com/');
     cy.url().should('include', '/automationexercise');
   });
-
-  const user = {
-    firstName: 'Kinkini',
-    latName: 'Gamage',
-    email: Cypress.env('userEmail'),
-    password: Cypress.env('userPassword'),
-  };
-
+ 
   function fillSignupForm(user) {
     cy.contains('b', 'Enter Account Information').should('be.visible')
     cy.get('#id_gender2').check()
@@ -53,12 +55,7 @@ describe('Login Page Test', () => {
   })
 
   it('User_Logout', () => {
-    cy.UserLogin({
-      firstName: 'Kinkini',
-      latName: 'Gamage',
-      email: Cypress.env('userEmail'),
-      password: Cypress.env('userPassword'),
-    })
+    cy.UserLogin(user)
     cy.url().should('include', '/automationexercise');
     cy.contains('a', 'Logout').click()
     cy.url().should('include', '/login');
@@ -83,7 +80,6 @@ describe('Login Page Test', () => {
     cy.contains('p', 'You can create new account to take advantage of member privileges to enhance your online shopping experience with us.').should('be.visible')
     cy.get('[data-qa="continue-button"]').click()
     cy.url().should('include', '/automationexercise');
-
   })
 });
 
