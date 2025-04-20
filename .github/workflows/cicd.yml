@@ -3,6 +3,7 @@ name: CICD
 on:
   push:
     branches:
+      - main
       - feat/login-page
 
 jobs:
