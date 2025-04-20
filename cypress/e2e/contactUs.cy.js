@@ -39,6 +39,10 @@ describe('Contact Us Page Test Suite', () => {
         });
         
         cy.get('[data-qa="submit-button"]').click();
+        cy.contains('h2', 'Get In Touch').should('be.visible');
+        cy.contains('div', 'Success! Your details have been submitted successfully.').should('be.visible');
+        cy.contains('span', 'Home').click();
+        cy.url().should('include', '/automationexercise');
      });
 
 });
