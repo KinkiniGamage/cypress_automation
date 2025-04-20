@@ -22,10 +22,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Cypress tests in Chrome
+      - name: Run Cypress tests
         uses: cypress-io/github-action@v6
-        with:
-          browser: chrome
         env:
           CYPRESS_USER_EMAIL: ${{ secrets.CYPRESS_USER_EMAIL }}
           CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}
